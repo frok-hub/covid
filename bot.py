@@ -1,26 +1,13 @@
-
-
-
-
-
-
-
-
-
-from covid_india import states
-
+import requests:
  
-
-ap = states.getdata('Andhra Pradesh')
-
+URL = 'https://api.telegram.org/bot1169217703:AAFgak3bdsAsBDlr24U19WXt0vg_ifWgcbA'
+# Don't forget to change the token key
  
-
-print('Total Covid Cases:',ap['Total'])
-
+def get_updates(url):
+    response = requests.get(url+'getUpdates').json()
+    return response['result']
  
-
-print('Cured Cases:',ap['Cured'])
-
  
-
-print('Death Cases:',ap['Death'])
+data = get_updates(url)
+ 
+print(data)
